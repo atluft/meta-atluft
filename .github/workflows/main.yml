@@ -1,4 +1,4 @@
-name: actions for poky
+name: actions for meta atluft
 
 on:
   push:
