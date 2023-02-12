@@ -31,5 +31,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: images
-          path: /home/runner/work/meta-atluft/meta-atluft/build/tmp/deploy/
+          path: /home/runner/work/meta-atluft/meta-atluft/build/tmp/deploy/images
 
