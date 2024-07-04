@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
     branches: ["master"]
 
-on:
   push:
     branches: ["master"]
 
@@ -16,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: 'yoctoproject/poky'
-          ref: 'master'
+          ref: 'kirkstone'
       - name: install build host packages
         run: |
           sudo apt update
@@ -28,7 +27,7 @@ jobs:
           echo 'BB_SIGNATURE_HANDLER = "OEEquivHash"' >> conf/local.conf
           echo 'BB_HASHSERVE = "auto"' >> conf/local.conf
           echo 'BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"' >> conf/local.conf
-          echo 'SSTATE_MIRRORS ?= "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"' >> conf/local.conf
+          echo 'SSTATE_MIRRORS = "file://.* https://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"' >> conf/local.conf
           cat conf/local.conf
           bitbake core-image-minimal
       - name: Archive image dir artifact
