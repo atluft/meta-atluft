@@ -1,6 +1,10 @@
 name: actions for meta atluft
 
 on:
+  workflow_dispatch:
+    branches: ["master"]
+
+on:
   push:
     branches: ["master"]
 
